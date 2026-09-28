@@ -52,8 +52,9 @@
   扮演佛學與語言專家，檢視「步驟二」。確保宗教詞彙精確度，並檢查風格是否完全符合設定。
 * **步驟四（Edit-Article 全域編修）**：
   扮演資深編輯，跳脫逐句翻譯框架，強化段落起承轉合，消除翻譯腔，使句式完全符合母語人士閱讀習慣。
-* **步驟五（Lint-and-Fix & Obsidian 格式化輸出）**：
-  扮演 QA 校對工程師，對步驟四的結果進行最終修復與打包：
-  1. 【Lint-and-Fix】：檢查並修復所有排版（外文與數字需有半形空格、全半形標點規範），並確保 100% 遵守【Ubiquitous Language】。
-  2. 【Obsidian 格式化】：將最終定稿輸出於 Markdown 程式碼區塊中。必須包含完整的 YAML Frontmatter (title, date, language, tags)，並將【Ubiquitous Language】定義的名詞全部自動加上 `[[ ]]` 雙向連結符號。
-```
+* **步驟五（a-plan 契約驗證 & Obsidian 格式輸出）**：
+  導入 `a-plan` 的強型別防破版機制 (Zod Validation Gateway 思維)。
+  1. 【JSON 契約生成】：在輸出 Markdown 前，AI 必須在底層先建構出嚴格的 JSON 結構，確保欄位無遺漏。結構必須包含：`{"title": "...", "original_text": "...", "translated_text": "...", "ubiquitous_terms": ["..."]}`。
+  2. 【Lint-and-Fix 驗證】：根據上述 JSON 結構，檢查中英數空格、全半形標點，並確保 100% 貫徹【Ubiquitous Language】。
+  3. 【Obsidian 格式化】：將驗證通過的內容輸出於單一 Markdown 程式碼區塊中。開頭需包含標準 YAML Frontmatter (title, date, language, tags)，並將專有名詞包上 `[[ ]]` 作為雙向連結符號。絕對禁止漏標或排版走鐘。
+
