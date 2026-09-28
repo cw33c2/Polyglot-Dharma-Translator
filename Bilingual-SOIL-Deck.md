@@ -45,7 +45,14 @@
   - **內文框** (高度 4.425，緊貼標題底部，距離底部 0.2 吋)：
     - 左欄中文內文：`x: 0.2, y: 1.0, w: 4.8, h: 4.425`
     - 右欄外文內文：`x: 5.0, y: 1.0, w: 4.8, h: 4.425`
-  - ⚠️ **文字選項必須強制加入 `wrap: true` 參數，確保過長單字會自動換行，且超出內文框界線亦無妨。**
+  - ⚠️ **屬性參數限制**：
+    1. **強制換行**：必須加入 `wrap: true`，確保過長單字自動換行，允許超出版界。
+    2. **動態語系字型 (fontFace)**：為避免外文亂碼或截斷，請根據【目標語言】自動在 `options` 加入最佳字型：
+       - 泰文：`fontFace: "Leelawadee UI"` 或 `"Tahoma"`
+       - 日文：`fontFace: "Meiryo"` 或 `"Yu Gothic"`
+       - 越文：`fontFace: "Segoe UI"` 或 `"Arial"`
+       - 印尼文/英文：`fontFace: "Arial"` 或 `"Calibri"`
+       - 中文 (左欄)：`fontFace: "Microsoft JhengHei"` (微軟正黑體)
 
 請開始 Phase 1，向我提問。
 ```
